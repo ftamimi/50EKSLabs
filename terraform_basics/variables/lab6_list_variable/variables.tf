@@ -16,3 +16,25 @@ variable "instance_keypair" {
   type        = string
   description = "AWS EC2 Key Pair"
 }
+
+variable "instance_type_list" {
+  description = "EC2 instance list"
+  type        = list(string)
+  default = [
+    "t4g.micro",
+    "t4g.small",
+    "t4g.medium"
+  ]
+
+}
+
+variable "instance_type_map" {
+  description = "EC2 instance map"
+  type        = map(string)
+  default = {
+    "dev"  = "t4g.micro"
+    "uat"  = "t4g.small"
+    "prod" = "t4g.medium"
+  }
+
+}
